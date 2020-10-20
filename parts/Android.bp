@@ -18,5 +18,6 @@ android_app {
         "org.lineageos.settings.resources",
         "vendor.xiaomi.hardware.motor-V1.0-java",
         "SettingsLib",
+        "//hardware/xiaomi:vendor.xiaomi.hardware.touchfeature-V1.0-java",
     ],
 }
