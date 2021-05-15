@@ -22,6 +22,10 @@ wakelock_use(vendor_mdm_helper)
 # Allow mdm_helper to execute /vendor/bin/ks
 allow vendor_mdm_helper ks_exec:file execute_no_trans;
 
+# Needed by ks in order to access the efs sync partitions
+allow vendor_mdm_helper block_device:dir r_dir_perms;
+allow vendor_mdm_helper efs_boot_device:blk_file r_file_perms;
+
 # Allow mdmhelper (kickstart) to use SDX55M tombstones
 allow vendor_mdm_helper mdm_tombstone_data_file:dir create_dir_perms;
 allow vendor_mdm_helper mdm_tombstone_data_file:dir rw_dir_perms;
