@@ -428,8 +428,10 @@ PRODUCT_BOOT_JARS += \
     xiaomi-telephony-stub
 
 # Thermal
+ifeq ($(TARGET_USE_QTI_THERMAL_SERVICE),true)
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
+endif
 
 # Userfaultfd garbage collector
 PRODUCT_ENABLE_UFFD_GC := true
