@@ -81,3 +81,5 @@ persist.mm.enable.prefetch=true
 vidc.enc.dcvs.extra-buff-count=2
 vidc.enc.disable.pq=1
 
+# Thermal Path
+vendor.sys.thermal.data.path=/data/vendor/thermal/
