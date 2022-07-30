@@ -58,3 +58,6 @@ persist.vendor.radio.report_codec=1
 # SkiaGL Threaded
 debug.renderengine.backend=skiaglthreaded
 debug.hwui.renderer=skiagl
+
+# Thermal Path
+vendor.sys.thermal.data.path=/data/vendor/thermal/
