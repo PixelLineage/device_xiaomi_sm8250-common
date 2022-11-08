@@ -9,3 +9,6 @@ vendor.xiaomi.hardware.mlipay::IMlipayService                                   
 
 # Motor
 vendor.xiaomi.hardware.motor::IMotor                                                                u:object_r:hal_motor_hwservice:s0
+
+# Vibrator Feature
+vendor.xiaomi.hardware.vibratorfeature::IVibratorFeature                                            u:object_r:vendor_hal_vibratorfeature_hwservice:s0
