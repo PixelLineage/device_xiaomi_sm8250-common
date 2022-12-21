@@ -366,4 +366,7 @@
 
     <!-- Disable source pocket mode -->
     <bool name="config_pocketModeSupported">false</bool>
+
+    <!-- Determines whether the shell features all run on another thread. -->
+    <bool name="config_enableShellMainThread">true</bool>
 </resources>
