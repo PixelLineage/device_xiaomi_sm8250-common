@@ -24,6 +24,9 @@ ro.config.avoid_gfx_accel=true
 # Disable MTE Async for system server
 persist.arm64.memtag.system_server=off
 
+# Feature flags
+persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
+
 # Fwk detect
 ro.vendor.qti.va_aosp.support=1
 
