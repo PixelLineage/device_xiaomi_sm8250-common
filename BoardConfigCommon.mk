@@ -61,6 +61,9 @@ TARGET_NO_BOOTLOADER := true
 # Camera Malloc
 MALLOC_SVELTE_FOR_LIBC32 := true
 
+# Camera - Miui
+TARGET_CAMERA_PACKAGE_NAME := com.android.camera
+
 # Disable sparse
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 TARGET_USERIMAGES_SPARSE_F2FS_DISABLED := true
