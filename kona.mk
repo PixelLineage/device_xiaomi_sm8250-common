@@ -319,7 +319,8 @@ PRODUCT_PACKAGES += \
     libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
+    $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
 # Public libraries
 PRODUCT_COPY_FILES += \
