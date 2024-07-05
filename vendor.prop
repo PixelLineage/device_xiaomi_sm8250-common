@@ -238,10 +238,6 @@ persist.vendor.ims.disableDebugLogs=1
 persist.vendor.ims.disableIMSLogs=1
 persist.vendor.ims.disableQXDMLogs=1
 
-# Media
-debug.stagefright.ccodec=4
-debug.stagefright.omx_default_rank=0
-
 # NFC
 ro.camera.notify_nfc=1
 
