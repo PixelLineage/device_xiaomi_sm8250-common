@@ -434,7 +434,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.xiaomi-sm8250-libperfmgr \
+    android.hardware.power-service.xiaomi-libperfmgr \
     libqti-perfd-client \
     android.hardware.power@1.2.vendor
 
