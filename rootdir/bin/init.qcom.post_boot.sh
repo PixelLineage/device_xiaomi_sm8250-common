@@ -6226,4 +6226,3 @@ case "$target" in
         echo 5120 > /proc/sys/vm/min_free_kbytes
      ;;
 esac
-echo 1 > /sys/touchpanel/double_tap
