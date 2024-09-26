@@ -34,8 +34,8 @@ persist.sys.fuse.passthrough.enable=true
 ro.vendor.qti.va_aosp.support=1
 
 # SkiaGL Threaded
-debug.renderengine.backend=gles
-debug.hwui.renderer=opengl
+debug.renderengine.backend=skiaglthreaded
+debug.hwui.renderer=skiagl
 
 # IMS
 persist.dbg.volte_avail_ovr=1
