@@ -14,9 +14,6 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.line
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
 
-# Disable vsync for cpu rendered apps
-debug.cpurend.vsync=false
-
 # Display
 debug.gralloc.gfx_ubwc_disable=0
 debug.sf.enable_hwc_vds=0
