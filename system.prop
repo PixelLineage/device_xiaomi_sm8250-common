@@ -11,6 +11,9 @@ persist.bluetooth.sbc_hd_higher_bitrate=1
 camera.disable_zsl_mode=true
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev
 
+# Disable Layer caching
+ro.surface_flinger.enable_layer_caching=false
+
 # Disable Skia tracing by default
 debug.hwui.skia_tracing_enabled=false
 debug.hwui.skia_use_perfetto_track_events=false
