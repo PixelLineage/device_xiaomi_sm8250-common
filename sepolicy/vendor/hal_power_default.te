@@ -9,7 +9,6 @@ allow hal_power_default {
   sysfs_fs_f2fs
   sysfs_msm_subsys
   sysfs_touchpanel
-  sysfs_fs_f2fs
 }:dir search;
 
 allow hal_power_default {
@@ -22,7 +21,6 @@ allow hal_power_default {
   sysfs_msm_subsys
   vendor_sysfs_scsi_host 
   sysfs_touchpanel
-  sysfs_fs_f2fs
 }:{
   file
   lnk_file
