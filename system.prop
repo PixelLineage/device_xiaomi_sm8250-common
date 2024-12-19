@@ -22,6 +22,8 @@ dalvik.vm.systemuicompilerfilter=speed
 dalvik.vm.systemservercompilerfilter=speed
 
 # Display
+debug.sf.latch_unsignaled=0
+debug.sf.auto_latch_unsignaled=true
 debug.gralloc.gfx_ubwc_disable=0
 debug.sf.enable_hwc_vds=0
 persist.vendor.color.matrix=2
