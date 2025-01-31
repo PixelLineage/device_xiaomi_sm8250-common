@@ -22,7 +22,6 @@ persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
 
 # Dalvik
 dalvik.vm.systemuicompilerfilter=speed 
-dalvik.vm.systemservercompilerfilter=speed 
 
 # Disable Layer caching
 ro.surface_flinger.enable_layer_caching=false
