@@ -34,6 +34,9 @@ debug.sf.predict_hwc_composition_strategy=0
 persist.vendor.color.matrix=2
 ro.config.avoid_gfx_accel=true
 
+# Disable MTE Async for system server
+persist.arm64.memtag.system_server=off
+
 # Fwk detect
 ro.vendor.qti.va_aosp.support=1
 
