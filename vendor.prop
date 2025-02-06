@@ -149,12 +149,6 @@ ro.soc.model=SM8250
 ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts
 
-# Dexopt
-dalvik.vm.systemuicompilerfilter=speed 
-dalvik.vm.systemservercompilerfilter=speed 
-dalvik.vm.dex2oat-minidebuginfo=false
-dalvik.vm.dex2oat64.enabled=true
-
 # Display
 persist.sys.sf.color_mode=9
 persist.sys.sf.color_saturation=1.0
@@ -203,11 +197,12 @@ vendor.gatekeeper.disable_spu=true
 # Graphics
 debug.egl.hw=0
 debug.mdpcomp.logs=0
-debug.sf.disable_client_composition_cache=1
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=false
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=0
+debug.sf.enable_hwc_vds=1
+debug.sf.predict_hwc_composition_strategy=0
 debug.sf.enable_transaction_tracing=false
 debug.sf.use_phase_offsets_as_durations=1
 debug.sf.late.app.duration=16666666
