@@ -197,8 +197,6 @@ vendor.gatekeeper.disable_spu=true
 # Graphics
 debug.egl.hw=0
 debug.mdpcomp.logs=0
-debug.sf.latch_unsignaled=1
-debug.sf.auto_latch_unsignaled=false
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=0
 vendor.display.vds_allow_hwc=1
