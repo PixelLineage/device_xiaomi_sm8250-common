@@ -70,9 +70,6 @@ persist.vendor.radio.report_codec=1
 debug.renderengine.backend=skiaglthreaded
 debug.hwui.renderer=skiagl
 
-# WFD
-vendor.wfdservice64=enable
-
 # system props for the MM modules
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
