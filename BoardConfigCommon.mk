@@ -121,9 +121,6 @@ GLOBAL_THINLTO := true
 USE_THINLTO_CACHE := true
 SKIP_ABI_CHECKS := true
 
-# Media
-TARGET_USES_ION := true
-
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 ifeq ($(TARGET_IS_VAB),true)
