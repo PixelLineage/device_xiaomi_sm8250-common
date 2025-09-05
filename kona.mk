@@ -431,6 +431,9 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
+# Userfaultfd garbage collector
+PRODUCT_ENABLE_UFFD_GC := true
+
 # USB
 PRODUCT_HAS_GADGET_HAL := true
 PRODUCT_PACKAGES += \
