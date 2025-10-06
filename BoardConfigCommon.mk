@@ -115,10 +115,6 @@ KERNEL_LD := LD=ld.lld
 TARGET_KERNEL_ADDITIONAL_FLAGS += LLVM=1 LLVM_IAS=1
 TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
-TARGET_KERNEL_CONFIG := \
-    vendor/kona-perf_defconfig \
-    vendor/debugfs.config \
-    vendor/xiaomi/sm8250-common.config
 
 # LTO
 GLOBAL_THINLTO := true
