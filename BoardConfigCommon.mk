@@ -5,7 +5,6 @@
 #
 
 COMMON_PATH := device/xiaomi/sm8250-common
-
 # A/B
 ifeq ($(TARGET_IS_VAB),true)
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
