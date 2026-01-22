@@ -1,2 +1,5 @@
 # Allow devicesettings_app to write to HBM node
 rw_dir_file(devicesettings_app, vendor_sysfs_graphics)
+
+# Allow devicesettings_app to r/w livedisplay_tuneable
+allow devicesettings_app sysfs_livedisplay_tuneable:file rw_file_perms;
