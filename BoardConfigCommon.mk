@@ -69,11 +69,6 @@ MALLOC_SVELTE_FOR_LIBC32 := true
 # Camera - Miui
 TARGET_CAMERA_PACKAGE_NAME := com.android.camera
 
-# Camera - HIDL overrideFormat
-TARGET_CAMERA_USES_NEWER_HIDL_OVERRIDE_FORMAT = true
-# Camera - HIDL overrideFormat - Alternative Version
-$(call soong_config_set,camera,override_format_from_reserved,true)
-
 # Disable sparse
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 TARGET_USERIMAGES_SPARSE_F2FS_DISABLED := true
@@ -107,7 +102,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
-TARGET_KERNEL_NO_GCC := true
+# TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 
 # LTO
