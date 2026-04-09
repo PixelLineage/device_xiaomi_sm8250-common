@@ -22,8 +22,10 @@
     <string name="hbm_mode_summary">Enable peak luminance</string>
     <string name="auto_hbm_title">Automatic HBM</string>
     <string name="auto_hbm_summary">Enable peak luminance based on sunlight</string>
-    <string name="auto_hbm_threshold_title"></string>
-    <string name="auto_hbm_threshold_summary">Threshold (lux)</string>
+    <string name="auto_hbm_threshold_title">Threshold</string>
+    <string name="auto_hbm_threshold_summary">Current value: %d lux</string>
+    <string name="auto_hbm_threshold_reset_title">Reset to default</string>
+    <string name="auto_hbm_threshold_reset_summary">Restore default threshold (6000 lux)</string>
     <string name="hbm_mode_warning">Auto brightness needs to be turned on for auto HBM to work.</string>
 
     <!-- Clear Speaker -->

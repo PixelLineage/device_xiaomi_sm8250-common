@@ -17,30 +17,24 @@
 */
 package org.lineageos.settings.hbm;
 
-import android.app.Fragment;
 import android.os.Bundle;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.PreferenceManager;
+
+import androidx.fragment.app.Fragment;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 import com.android.settingslib.collapsingtoolbar.R;
 
 public class HBMActivity extends CollapsingToolbarBaseActivity {
 
-    private HBMFragment mHBMFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.content_frame);
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         if (fragment == null) {
-            mHBMFragment = new HBMFragment();
-            getFragmentManager().beginTransaction()
-                .add(R.id.content_frame, mHBMFragment)
+            getSupportFragmentManager().beginTransaction()
+                .add(R.id.content_frame, new HBMFragment())
                 .commit();
-        } else {
-            mHBMFragment = (HBMFragment) fragment;
         }
     }
 }

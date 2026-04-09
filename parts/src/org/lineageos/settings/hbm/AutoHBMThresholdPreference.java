@@ -18,38 +18,75 @@
 package org.lineageos.settings.hbm;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.util.AttributeSet;
-import androidx.preference.PreferenceManager;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceViewHolder;
 
-public class AutoHBMThresholdPreference extends CustomSeekBarPreference {
+import com.android.settingslib.widget.SliderPreference;
+import com.google.android.material.slider.Slider;
 
-    private static int mMinVal = 0;
-    private static int mMaxVal = 60000;
-    private static int mDefVal = 6000;
+import org.lineageos.settings.R;
+
+public class AutoHBMThresholdPreference extends SliderPreference
+        implements Slider.OnSliderTouchListener {
+
+    public static final int DEF_VAL = 6000;
+    private static final int MIN_VAL = 0;
+    private static final int MAX_VAL = 60000;
+    private static final int STEP = 1000;
+
+    private TextView mSummaryView;
 
     public AutoHBMThresholdPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        mInterval = 1000;
-        mShowSign = false;
-        mUnits = "";
-        mContinuousUpdates = false;
-        mMinValue = mMinVal;
-        mMaxValue = mMaxVal;
-        mDefaultValueExists = true;
-        mDefaultValue = mDefVal;
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        mValue = Integer.parseInt(sharedPrefs.getString(HBMFragment.KEY_AUTO_HBM_THRESHOLD, "6000"));
-
-        setPersistent(false);
+        setMin(MIN_VAL);
+        setMax(MAX_VAL);
+        setSliderIncrement(STEP);
+        setShowSliderValue(true);
+        setLabelFormater(value -> (int) value + " lux");
+        setExtraTouchListener(this);
     }
 
     @Override
-    protected void changeValue(int newValue) {
-        SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-        prefChange.putString(HBMFragment.KEY_AUTO_HBM_THRESHOLD, String.valueOf(newValue)).commit();
+    protected void onSetInitialValue(Object defaultValue) {
+        if (defaultValue == null) {
+            defaultValue = DEF_VAL;
+        }
+        setValue(getPersistedInt((Integer) defaultValue));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        mSummaryView = (TextView) holder.findViewById(android.R.id.summary);
+        if (mSummaryView != null) {
+            mSummaryView.setVisibility(View.VISIBLE);
+            updateSummaryView(getValue());
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(@NonNull Slider slider) {
+    }
+
+    @Override
+    public void onStopTrackingTouch(@NonNull Slider slider) {
+        updateSummaryView((int) slider.getValue());
+    }
+
+    public void resetToDefault() {
+        setValue(DEF_VAL);
+        persistInt(DEF_VAL);
+        updateSummaryView(DEF_VAL);
+    }
+
+    private void updateSummaryView(int value) {
+        if (mSummaryView != null) {
+            mSummaryView.setText(
+                    getContext().getString(R.string.auto_hbm_threshold_summary, value));
+        }
     }
 }

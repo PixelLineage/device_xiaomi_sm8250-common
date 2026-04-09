@@ -16,32 +16,39 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:settings="http://schemas.android.com/apk/res/org.lineageos.settings.HBMFragment"
-	android.title="@string/hbm_fragment_title">
+    android:title="@string/hbm_fragment_title">
 
-    <PreferenceCategory>
-        <SwitchPreferenceCompat
-            android:key="hbm"
-            android:title="@string/hbm_mode_title"
-            android:icon="@drawable/ic_hbm_tile"
-            android:summary="@string/hbm_mode_summary"
-            android:defaultValue="false" />
+    <SwitchPreferenceCompat
+        android:key="hbm"
+        android:title="@string/hbm_mode_title"
+        android:icon="@drawable/ic_hbm_tile"
+        android:summary="@string/hbm_mode_summary"
+        android:defaultValue="false" />
 
-        <SwitchPreferenceCompat
-            android:key="auto_hbm"
-            android:title="@string/auto_hbm_title"
-            android:icon="@drawable/ic_auto_hbm"
-            android:summary="@string/auto_hbm_summary"
-            android:defaultValue="true" />
+    <SwitchPreferenceCompat
+        android:key="auto_hbm"
+        android:title="@string/auto_hbm_title"
+        android:icon="@drawable/ic_auto_hbm"
+        android:summary="@string/auto_hbm_summary"
+        android:defaultValue="true" />
 
-        <org.lineageos.settings.hbm.AutoHBMThresholdPreference
-            android:key="auto_hbm_threshold"
-            android:title="@string/auto_hbm_threshold_title"
-            android:summary="@string/auto_hbm_threshold_summary" />
+    <org.lineageos.settings.hbm.AutoHBMThresholdPreference
+        android:key="auto_hbm_threshold"
+        android:title="@string/auto_hbm_threshold_title"
+        android:defaultValue="6000"
+        android:dependency="auto_hbm" />
 
-        <Preference
-            android:icon="@drawable/ic_info_outline"
-            android:summary="@string/hbm_mode_warning" 
-            android:persistent="false" />
-    </PreferenceCategory>
+    <Preference
+        android:key="auto_hbm_threshold_reset"
+        android:title="@string/auto_hbm_threshold_reset_title"
+        android:summary="@string/auto_hbm_threshold_reset_summary"
+        android:icon="@drawable/ic_reset"
+        android:persistent="false"
+        android:dependency="auto_hbm" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="hbm_footer"
+        android:title="@string/hbm_mode_warning"
+        android:selectable="false" />
+
 </PreferenceScreen>

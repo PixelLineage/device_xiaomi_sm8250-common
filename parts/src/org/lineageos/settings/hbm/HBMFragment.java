@@ -20,60 +20,67 @@
 package org.lineageos.settings.hbm;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
+
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.TwoStatePreference;
 
-import org.lineageos.settings.utils.FileUtils;
-import org.lineageos.settings.R;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
-public class HBMFragment extends PreferenceFragment
+import org.lineageos.settings.utils.FileUtils;
+
+public class HBMFragment extends SettingsBasePreferenceFragment
         implements Preference.OnPreferenceChangeListener {
-    private static final String TAG = HBMFragment.class.getSimpleName();
 
     public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_AUTO_HBM_SWITCH = "auto_hbm";
     public static final String KEY_AUTO_HBM_THRESHOLD = "auto_hbm_threshold";
+    public static final String KEY_AUTO_HBM_THRESHOLD_RESET = "auto_hbm_threshold_reset";
 
-    private static TwoStatePreference mHBMModeSwitch;
-    private static TwoStatePreference mAutoHBMSwitch;
+    private TwoStatePreference mHBMModeSwitch;
+    private TwoStatePreference mAutoHBMSwitch;
+    private AutoHBMThresholdPreference mThresholdPref;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
-        addPreferencesFromResource(R.xml.hbm_settings);
+        addPreferencesFromResource(org.lineageos.settings.R.xml.hbm_settings);
 
-        // HBM
-        mHBMModeSwitch = (TwoStatePreference) findPreference(KEY_HBM_SWITCH);
+        mHBMModeSwitch = findPreference(KEY_HBM_SWITCH);
         mHBMModeSwitch.setOnPreferenceChangeListener(new HBMModeSwitch());
 
-        // AutoHBM
-        mAutoHBMSwitch = (TwoStatePreference) findPreference(KEY_AUTO_HBM_SWITCH);
+        mAutoHBMSwitch = findPreference(KEY_AUTO_HBM_SWITCH);
         mAutoHBMSwitch.setOnPreferenceChangeListener(this);
-        mAutoHBMSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(HBMFragment.KEY_AUTO_HBM_SWITCH, true));
+        mAutoHBMSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getBoolean(KEY_AUTO_HBM_SWITCH, true));
+
+        mThresholdPref = findPreference(KEY_AUTO_HBM_THRESHOLD);
+
+        Preference resetPref = findPreference(KEY_AUTO_HBM_THRESHOLD_RESET);
+        resetPref.setOnPreferenceClickListener(pref -> {
+            if (mThresholdPref != null) {
+                mThresholdPref.resetToDefault();
+            }
+            return true;
+        });
     }
 
     public static boolean isAUTOHBMEnabled(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(HBMFragment.KEY_AUTO_HBM_SWITCH, true);
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(KEY_AUTO_HBM_SWITCH, true);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mAutoHBMSwitch) {
-            Boolean enabled = (Boolean) newValue;
-            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            boolean enabled = (Boolean) newValue;
+            SharedPreferences.Editor prefChange = PreferenceManager
+                    .getDefaultSharedPreferences(getContext()).edit();
             prefChange.putBoolean(KEY_AUTO_HBM_SWITCH, enabled).commit();
             FileUtils.enableService(getContext());
             return true;
-           }
-
+        }
         return false;
     }
 }

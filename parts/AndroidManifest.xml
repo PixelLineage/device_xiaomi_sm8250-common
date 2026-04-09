@@ -29,7 +29,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
         android:persistent="true"
-        android:theme="@style/Theme.SubSettingsBase"
+        android:theme="@style/Theme.SubSettingsBase.Expressive"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
 
@@ -61,7 +61,7 @@
             android:name=".hbm.HBMActivity"
             android:label="@string/hbm_fragment_title"
             android:exported="false"
-            android:theme="@style/Theme.SubSettingsBase">
+            android:theme="@style/Theme.SubSettingsBase.Expressive">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
