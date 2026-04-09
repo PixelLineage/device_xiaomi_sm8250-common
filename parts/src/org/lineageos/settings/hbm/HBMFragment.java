@@ -57,11 +57,11 @@ public class HBMFragment extends PreferenceFragment
         // AutoHBM
         mAutoHBMSwitch = (TwoStatePreference) findPreference(KEY_AUTO_HBM_SWITCH);
         mAutoHBMSwitch.setOnPreferenceChangeListener(this);
-        mAutoHBMSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(HBMFragment.KEY_AUTO_HBM_SWITCH, false));
+        mAutoHBMSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(HBMFragment.KEY_AUTO_HBM_SWITCH, true));
     }
 
     public static boolean isAUTOHBMEnabled(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(HBMFragment.KEY_AUTO_HBM_SWITCH, false);
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(HBMFragment.KEY_AUTO_HBM_SWITCH, true);
     }
 
     @Override

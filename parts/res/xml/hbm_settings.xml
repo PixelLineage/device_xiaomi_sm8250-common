@@ -31,7 +31,8 @@
             android:key="auto_hbm"
             android:title="@string/auto_hbm_title"
             android:icon="@drawable/ic_auto_hbm"
-            android:summary="@string/auto_hbm_summary" />
+            android:summary="@string/auto_hbm_summary"
+            android:defaultValue="true" />
 
         <org.lineageos.settings.hbm.AutoHBMThresholdPreference
             android:key="auto_hbm_threshold"
